@@ -1,16 +1,20 @@
-import { roles } from "@/utils/constants";
-import connectToDB from "@/configs/db";
-import UserModel from "@/models/User";
+
+import UserModel from "../../../../../models/User.js";
 import { generateAccessToken, hashPassword } from "@/utils/auth";
+import { roles } from "@/utils/constants";
+import connectToDB from "../../../../../configs/db";
 
 export async function POST(req) {
   connectToDB();
   const body = await req.json();
   const { name, phone, email, password } = body;
-  //Validation
+
+  // Validation (You)
+
   const isUserExist = await UserModel.findOne({
     $or: [{ name }, { email }, { phone }],
   });
+
   if (isUserExist) {
     return Response.json(
       {
@@ -21,16 +25,17 @@ export async function POST(req) {
       }
     );
   }
+
   const hashedPassword = await hashPassword(password);
   const accessToken = generateAccessToken({ name });
 
-  const users = UserModel.find({});
+  const users = await UserModel.find({});
 
   await UserModel.create({
     name,
     email,
     phone,
-    password: hashPassword,
+    password: hashedPassword,
     role: users.length > 0 ? roles.USER : roles.ADMIN,
   });
 
