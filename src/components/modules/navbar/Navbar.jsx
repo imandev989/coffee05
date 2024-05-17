@@ -25,54 +25,10 @@ const Navbar = () => {
   return (
     <nav className={fixTop ? styles.navbar_fixed : styles.navbar}>
       <main>
-        <div>
-          <Link href="/">
-            <img src="/images/logo2.png" alt="Logo" width={100} height={75} />
-          </Link>
-        </div>
+        
 
-        <ul className={styles.links}>
-          <li>
-            <Link href="/">صفحه اصلی</Link>
-          </li>
-          <li>
-            <Link href="/category">فروشگاه</Link>
-          </li>
-          <li>
-            <Link href="/blog">وبلاگ</Link>
-          </li>
-          <li>
-            <Link href="/contact-us">تماس با ما</Link>
-          </li>
-          <li>
-            <Link href="/about-us">درباره ما</Link>
-          </li>
-          <li>
-            <Link href="/rules">قوانین</Link>
-          </li>
-          {/* <li>
-                <Link href="/login-register">ورود / عضویت</Link>
-              </li> */}
 
-          {/* Start My-account section */}
-          <div className={styles.dropdown}>
-            <Link href="/p-user">
-              <IoIosArrowDown className={styles.dropdown_icons} />
-              حساب کاربری
-            </Link>
-            <div className={styles.dropdown_content}>
-              <Link href="/p-user/orders">سفارشات</Link>
-              <Link href="/p-user/tickets">تیکت های پشتیبانی</Link>
-              <Link href="/p-user/comments">کامنت‌ها</Link>
-              <Link href="/p-user/wishlist">علاقه‌مندی‌ها</Link>
-              <Link href="/p-user/account-details">جزئیات اکانت</Link>
-            </div>
-          </div>
-
-          {/* Finish My-account section */}
-        </ul>
-
-        <div className={styles.navbar_icons}>
+      <div className={styles.navbar_icons}>
           <Link href="/cart">
             <FaShoppingCart />
             <span>1</span>
@@ -80,6 +36,64 @@ const Navbar = () => {
           <Link href="/wishlist">
             <FaRegHeart />
             <span>1</span>
+          </Link>
+        </div>
+
+        
+        <ul className={styles.links}>
+
+              {/* Start My-account section */}
+              <div className={styles.dropdown}>
+            <Link href="/p-user">
+              <IoIosArrowDown className={styles.dropdown_icons} />
+              Profile
+            </Link>
+            <div className={styles.dropdown_content}>
+              <Link href="/p-user/orders">Orders</Link>
+              <Link href="/p-user/tickets"> Support Tickets </Link>
+              <Link href="/p-user/comments">Comments</Link>
+              <Link href="/p-user/wishlist">Favourites</Link>
+              <Link href="/p-user/account-details"> Account SD</Link>
+            </div>
+          </div>
+
+          {/* Finish My-account section */}
+         
+          
+          
+         
+         
+          <li>
+            <Link href="/rules">Roles</Link>
+          </li>
+          <li>
+            <Link href="/about-us">About Us</Link>
+          </li>
+          <li>
+            <Link href="/contact-us">Contact Us</Link>
+          </li>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link href="/category">Store</Link>
+          </li>
+          <li>
+            <Link href="/">Home Page</Link>
+          </li>
+          {/* <li>
+                <Link href="/login-register">ورود / عضویت</Link>
+              </li> */}
+
+      
+        </ul>
+
+        
+
+
+        <div>
+          <Link href="/">
+            <img src="/images/logo2.png" alt="Logo" width={100} height={75} />
           </Link>
         </div>
       </main>

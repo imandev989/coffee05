@@ -14,20 +14,20 @@ const Card = () => {
         <div className={styles.icons}>
           <Link href="/">
             <CiSearch />
-            <p className={styles.tooltip}>مشاهده سریع</p>
+            <p className={styles.tooltip}>Fast View </p>
           </Link>
           <div>
             <CiHeart />
-            <p className={styles.tooltip}>افزودن به علاقه مندی ها </p>
+            <p className={styles.tooltip}> Add To Favourites</p>
           </div>
         </div>
-        <button>افزودن به سبد خرید</button>
+        <button> Add To Basket</button>
       </div>
 
       <div className={styles.details}>
         <Link href={"/"}>
-          کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( RED ) 10 عددی LIMITED
-          EDITION
+        KuruKahveci Mehmet Efendi Decaf Turkish Coffee, 50g – 1.76oz
+
         </Link>
         <div>
           <FaStar />
@@ -36,7 +36,7 @@ const Card = () => {
           <FaRegStar />
           <FaRegStar />
         </div>
-        <span>825,000 تومان</span>
+        <span>$5.40</span>
       </div>
     </div>
   );

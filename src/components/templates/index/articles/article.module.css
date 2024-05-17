@@ -10,7 +10,7 @@
 .date {
   position: absolute;
   top: 12px;
-  right: 12px;
+  left: 12px;
   padding: 0.3rem 0.5rem;
   background: white;
   display: grid;

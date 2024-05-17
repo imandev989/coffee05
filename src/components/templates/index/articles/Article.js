@@ -21,20 +21,20 @@ const Card = () => {
       </Link>
       <div className={styles.date}>
         <span>24</span>
-        <span>بهمن</span>
+        <span>April</span>
       </div>
       <div className={styles.details}>
-        <span className={styles.tag}>قهوه</span>
+        <span className={styles.tag}>Coffee</span>
         <Link href={"/article/123"} className={styles.title}>
-          مصرف قهوه با شیر برای کاهش التهاب
+          Drinking coffee with milk to reduce inflammation
         </Link>
         <div>
-          <p>نویسنده</p>
+          <p>Author</p>
           <img
             src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g"
             alt=""
           />
-          <p>Mohebi</p>
+          <p>Iman</p>
           <div>
             <MdOutlineSms />
             <span>0</span>

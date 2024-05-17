@@ -6,16 +6,16 @@ const Promote = () => {
     <div className={styles.readable}>
       <div data-aos="fade-up-right" className={styles.container}>
         <main className={styles.main}>
-          <section>
-            <span>خرید قهوه ، به سبک حرفه ای ها</span>
-            <p>زیبایی امروز رو با قهوه “ست” کنید</p>
-            <img data-aos="fade-left" src="/images/coffee-image-1.jpg" alt="" />
-          </section>
           <section className={styles.club}>
             <div>
-              <span>باشگاه مشتریان ست</span>
-              <p>برای مشتریان وفادار قهوه ست</p>
+              <span>It is a customer club</span>
+              <p>It is coffee for loyal customers</p>
             </div>
+          </section>
+          <section>
+            <span>Buying coffee, in the style of professionals</span>
+            <p>"Set" today's beauty with coffee</p>
+            <img data-aos="fade-left" src="/images/coffee-image-1.jpg" alt="" />
           </section>
         </main>
         <main className={styles.main}>
@@ -26,19 +26,20 @@ const Promote = () => {
               src="/images/coffee-svg-2.svg"
               alt=""
             />
-            <p className={styles.title}>چرا قهوه ست</p>
+            <p className={styles.title}>Why is it coffee?</p>
             <p>
-              برخورداری از تجربه و قدمت کافی و آگاهی از ذایقه مصرف کنندگان
-              راهنمای ما در برآورده ساختن نیاز مشتریان قهوه تخصصی (موج سوم) است
-              .تجربه ای به قدمت چهار نسل و ارتباط مستمر با مصرف کنندگان قهوه
-              ضامن این ویژگیها است.
+              Having sufficient experience and age and knowing the taste of
+              consumers is our guide in meeting the needs of specialty coffee
+              customers (third wave). Four generations of experience and
+              continuous communication with coffee consumers guarantee these
+              features.
             </p>
             <div>
               <Link href="/about-us">
-                <button className={styles.red_btn}>بیشتر بخوانید</button>
+                <button className={styles.red_btn}>Read More </button>
               </Link>
               <Link href="/category">
-                <button>فروشگاه</button>
+                <button>Store</button>
               </Link>
             </div>
           </section>

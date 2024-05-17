@@ -7,8 +7,8 @@ import ScrollToTop from "@/utils/SctollToTop";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "فروشگاه اینترنتی قهوه علی",
-  description: "قهوه علی | مصلی مشهد",
+  title: "Coffee Store",
+  description: "Coffee Store Stunbul",
   // icons: {
   //   icon: "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/36190/coffee-logo-clipart-md.png",
   // },
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" >
+    <html  >
       <body className={inter.className}>
         <AOSInit/>
         {children}

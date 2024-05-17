@@ -107,7 +107,7 @@
   color: #848484;
   transition: all 0.25s ease;
   font-size: 14px;
-  justify-content: right !important;
+  justify-content: left !important;
 }
 .dropdown_content {
   display: none !important;

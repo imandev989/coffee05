@@ -17,7 +17,7 @@
 }
 .main {
   margin-top: 5rem;
-  text-align: right;
+  text-align: left;
   margin-bottom: 3rem;
 }
 .club {
@@ -41,8 +41,8 @@
 }
 .club div {
   position: absolute;
-  bottom: 20px;
-  left: 0;
+  bottom: -20px;
+  right: 0;
   padding: 30px;
   width: 411px;
   background: white;
@@ -66,7 +66,7 @@
 .why_coffee div {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: right;
+  justify-content: left;
 }
 .red_btn {
   background-color: #711d1c !important;

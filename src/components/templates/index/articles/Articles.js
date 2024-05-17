@@ -9,8 +9,8 @@ import Article from "./Article";
 const Articles = () => {
   return (
     <div className={styles.container}>
-      <p className={styles.title}>مقالات ما</p>
-      <span className={styles.description}>دانستنی های جذاب دنیای قهوه</span>
+      <p className={styles.title}>Our articles</p>
+      <span className={styles.description}>Interesting facts about the world of coffee</span>
       <main>
         <Swiper
           slidesPerView={3}

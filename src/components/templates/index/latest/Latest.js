@@ -8,11 +8,11 @@ const Latest = () => {
     <div className={styles.container}>
       <section className={styles.title}>
         <div>
-          <p>آخرین محصولات</p>
+          <p>Latest Products </p>
           <span>Latest products</span>
         </div>
         <Link className={styles.link} href={"/category"}>
-          مشاهده همه <FaChevronLeft />{" "}
+          View All <FaChevronLeft />{" "}
         </Link>
       </section>
       <main data-aos="fade-up" className={styles.products}>
