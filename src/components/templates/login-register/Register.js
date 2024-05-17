@@ -17,24 +17,24 @@ const Register = ({ showloginForm }) => {
 
   const signUp = async () => {
     if (!name.trim()) {
-      return showSwal("نام را وارد بکنید", "error", "تلاش مجدد");
+      return showSwal("Please Enter Valid Name?", "error", "Retry");
     }
 
     const isValidPhone = valiadtePhone(phone);
     if (!isValidPhone) {
-      return showSwal("شماره تماس وارد شده معتبر نیست", "error", "تلاش مجدد ");
+      return showSwal("Your Phone Number is not valid!", "error", " Retry ");
     }
 
     if (email) {
       const isValidEmail = valiadteEmail(email);
       if (!isValidEmail) {
-        return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ");
+        return showSwal("  Your Email is not valid!  ", "error", "Retry ");
       }
     }
 
     const isValidPassword = valiadtePassword(password);
     if (!isValidPassword) {
-      return showSwal("پسورد وارد شده قابل حدس هست", "error", "تلاش مجدد ");
+      return showSwal(" Your Password is not valid    ", "error", " Retry ");
     }
 
     const user = { name, phone, email, password };
@@ -48,9 +48,13 @@ const Register = ({ showloginForm }) => {
     });
 
     if (res.status === 201) {
-      showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+      showSwal("Register Successful", "success", "Login to User Panel");
     } else if (res.status === 422) {
-      showSwal("کاربری با این اطلاعات از قبل وجود دارد", "error", "تلاش مجدد");
+      showSwal(
+        "A user with this information already exists",
+        "error",
+        " Retry"
+      );
     }
   };
 
@@ -64,21 +68,21 @@ const Register = ({ showloginForm }) => {
               value={name}
               onChange={(event) => setName(event.target.value)}
               type="text"
-              placeholder="نام"
+              placeholder="Name"
             />
             <input
               className={styles.input}
               type="text"
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
-              placeholder="شماره موبایل  "
+              placeholder=" Phone Number  "
             />
             <input
               className={styles.input}
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="ایمیل (دلخواه)"
+              placeholder=" Email (Optional)"
             />
 
             {isRegisterWithPass && (
@@ -87,7 +91,7 @@ const Register = ({ showloginForm }) => {
                 type="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                placeholder="رمز عبور"
+                placeholder=" Password"
               />
             )}
 
@@ -96,7 +100,7 @@ const Register = ({ showloginForm }) => {
               className={styles.btn}
               onClick={() => setIsRegisterWithOtp(true)}
             >
-              ثبت نام با کد تایید
+              Register with confirmation code
             </p>
 
             <button
@@ -110,13 +114,13 @@ const Register = ({ showloginForm }) => {
               }}
               className={styles.btn}
             >
-              ثبت نام با رمزعبور
+              Register with a password
             </button>
             <p onClick={showloginForm} className={styles.back_to_login}>
-              برگشت به ورود
+              Back to login{" "}
             </p>
           </div>
-          <p className={styles.redirect_to_home}>لغو</p>
+          <p className={styles.redirect_to_home}>Cancel</p>
         </>
       ) : (
         <Sms hideOtpForm={hideOtpForm} />

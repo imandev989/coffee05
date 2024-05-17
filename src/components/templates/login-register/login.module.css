@@ -18,7 +18,6 @@
   color: black;
   border-radius: 3px;
   border: 1px solid black;
-  direction: rtl;
   margin-top: 20px;
 }
 
@@ -29,7 +28,7 @@
 .checkbox {
   display: flex;
   margin: 20px 0 10px;
-  justify-content: right;
+  justify-content: left;
   flex-direction: row-reverse;
   align-items: center;
   gap: 6px;
@@ -103,7 +102,7 @@
 }
 
 .form span {
-  text-align: right;
+  text-align: left;
   margin-top: 30px;
   margin-bottom: 20px;
   font-size: 13px;

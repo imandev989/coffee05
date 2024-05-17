@@ -16,34 +16,34 @@ const Login = ({ showRegisterForm }) => {
             <input
               className={styles.input}
               type="text"
-              placeholder="ایمیل/شماره موبایل"
+              placeholder="Email/Phone"
             />
             <input
               className={styles.input}
               type="password"
-              placeholder="رمز عبور"
+              placeholder="Password"
             />
             <div className={styles.checkbox}>
               <input type="checkbox" name="" id="" />
-              <p>مرا به یاد داشته باش</p>
+              <p>Remember Me</p>
             </div>
             <button className={styles.btn}>ورود</button>
             <Link href={"/forget-password"} className={styles.forgot_pass}>
-              رمز عبور را فراموش کرده اید؟
+            Forgot Password?
             </Link>
             <button
               onClick={() => setIsLoginWithOtp(true)}
               className={styles.btn}
             >
-              ورود با کد یکبار مصرف
+                OTP Login
             </button>
-            <span>ایا حساب کاربری ندارید؟</span>
+            <span>Do you Have Account?</span>
             <button onClick={showRegisterForm} className={styles.btn_light}>
-              ثبت نام
+              Register
             </button>
           </div>
           <Link href={"/"} className={styles.redirect_to_home}>
-            لغو
+            Cancel
           </Link>
         </>
       ) : (
