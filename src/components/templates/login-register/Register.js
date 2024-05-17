@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./register.module.css";
 import Sms from "./Sms";
 import swal from "sweetalert";
-import { showSwal } from "@/utils/helpers";
+import { showSwal } from "@//utils/helpers";
 import { valiadteEmail, valiadtePassword, valiadtePhone } from "@/utils/auth";
 
 const Register = ({ showloginForm }) => {
