@@ -14,20 +14,20 @@ const Card = () => {
         <div className={styles.icons}>
           <Link href="/">
             <CiSearch />
-            <p className={styles.tooltip}>Fast View </p>
+            <p className={styles.tooltip}>Quick View</p>
           </Link>
           <div>
             <CiHeart />
-            <p className={styles.tooltip}> Add To Favourites</p>
+            <p className={styles.tooltip}>Add To Favorites </p>
           </div>
         </div>
-        <button> Add To Basket</button>
+        <button>Add To Basket</button>
       </div>
 
       <div className={styles.details}>
         <Link href={"/"}>
-        KuruKahveci Mehmet Efendi Decaf Turkish Coffee, 50g – 1.76oz
-
+          SETpresso coffee capsules compatible with Nespresso machine (RED) 10
+          pieces LIMITED EDITION
         </Link>
         <div>
           <FaStar />
@@ -36,7 +36,7 @@ const Card = () => {
           <FaRegStar />
           <FaRegStar />
         </div>
-        <span>$5.40</span>
+        <span>825,000 Dollar</span>
       </div>
     </div>
   );

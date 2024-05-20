@@ -1,6 +1,6 @@
 .card {
   width: 100%;
-  direction: rtl;
+  direction: ltr;
   position: relative;
   padding-top: 19px;
   color: black;
