@@ -1,11 +1,12 @@
 "use client";
 import styles from "./Navbar.module.css";
+
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ isLogin }) => {
   const [fixTop, setFixTop] = useState(false);
 
   useEffect(() => {
@@ -25,10 +26,7 @@ const Navbar = () => {
   return (
     <nav className={fixTop ? styles.navbar_fixed : styles.navbar}>
       <main>
-        
-
-
-      <div className={styles.navbar_icons}>
+        <div className={styles.navbar_icons}>
           <Link href="/cart">
             <FaShoppingCart />
             <span>1</span>
@@ -39,11 +37,14 @@ const Navbar = () => {
           </Link>
         </div>
 
-        
         <ul className={styles.links}>
-
-              {/* Start My-account section */}
-              <div className={styles.dropdown}>
+          {/* Start My-account section */}
+          {!isLogin ? (
+             <li>
+             <Link href="/login-register">Login/Register</Link>
+           </li>
+          ) : (
+            <div className={styles.dropdown}>
             <Link href="/p-user">
               <IoIosArrowDown className={styles.dropdown_icons} />
               Profile
@@ -56,13 +57,10 @@ const Navbar = () => {
               <Link href="/p-user/account-details"> Account SD</Link>
             </div>
           </div>
+          )}
 
           {/* Finish My-account section */}
-         
-          
-          
-         
-         
+
           <li>
             <Link href="/rules">Roles</Link>
           </li>
@@ -84,12 +82,7 @@ const Navbar = () => {
           {/* <li>
                 <Link href="/login-register">ورود / عضویت</Link>
               </li> */}
-
-      
         </ul>
-
-        
-
 
         <div>
           <Link href="/">
