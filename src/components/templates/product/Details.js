@@ -20,6 +20,7 @@ const Details = () => {
       </h2>
 
       <div className={styles.rating}>
+      <p>(Opinion of 7 users)</p>
         <div>
           <FaStar />
           <FaStar />
@@ -27,7 +28,7 @@ const Details = () => {
           <FaStar />
           <FaStar />
         </div>
-        <p>(Opinion of 7 users)</p>
+       
       </div>
 
       <p className={styles.price}>205,000 Dollar</p>

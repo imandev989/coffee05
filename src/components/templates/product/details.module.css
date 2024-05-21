@@ -1,5 +1,6 @@
 .rating {
   display: flex;
+  /* justify-self: left; */
   gap: 9px;
   margin-top: 2rem;
 }
