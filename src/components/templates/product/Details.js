@@ -1,4 +1,4 @@
-import { FaFacebookF, FaStar, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { TbSwitch3 } from "react-icons/tb";
@@ -6,48 +6,37 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
 
-const Details = () => {
+const Details = ({ product }) => {
   return (
     <main style={{ width: "63%" }}>
-      <Breadcrumb
-        title={
-          "SETpresso coffee capsules compatible with Nespresso machine (GOLD) 10-10 pieces"
-        }
-      />
-      <h2>
-        SETpresso coffee capsules compatible with Nespresso machine (GOLD) 10-10
-        pieces{" "}
-      </h2>
+      <Breadcrumb title={product.name} />
+      <h2>{product.name}</h2>
 
       <div className={styles.rating}>
-      <p>(Opinion of 7 users)</p>
         <div>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
+          {new Array(product.score).fill(0).map((item, index) => (
+            <FaStar key={index} />
+          ))}
+
+          {new Array(5 - product.score).fill(0).map((item, index) => (
+            <FaRegStar key={index} />
+          ))}
         </div>
-       
+        <p>(User {product.comments.length} Views)</p>
       </div>
 
-      <p className={styles.price}>205,000 Dollar</p>
-      <span className={styles.description}>
-        Gold model coffee capsule set is compatible with Nespresso capsule
-        machines. Composition This is Arabica coffee with a medium roast and
-        some acidity along with tone Medium variegated, and it is excellent to
-        combine with milk.
-      </span>
+      <p className={styles.price}>{product.price.toLocaleString()} تومان</p>
+      <span className={styles.description}>{product.shortDescription}</span>
 
       <hr />
 
       <div className={styles.Available}>
         <IoCheckmark />
-        <p>Available in stock</p>
+        <p>موجود در انبار</p>
       </div>
 
       <div className={styles.cart}>
-        <button>Add to cart</button>
+        <button>افزودن به سبد خرید</button>
         <div>
           <span>-</span>1<span>+</span>
         </div>
@@ -56,30 +45,27 @@ const Details = () => {
       <section className={styles.wishlist}>
         <div>
           <CiHeart />
-          <a href="/">Add to favorites</a>
+          <a href="/">افزودن به علاقه مندی ها</a>
         </div>
         <div>
           <TbSwitch3 />
-          <a href="/">Compare</a>
+          <a href="/">مقایسه</a>
         </div>
       </section>
 
       <hr />
 
       <div className={styles.details}>
-        <strong>Product ID: GOLD Nespresso Compatible capsule</strong>
+        <strong>شناسه محصول: {product._id}</strong>
+
         <p>
-          {" "}
-          <strong>Category:</strong> Coffee Capsule, Coffee capsules, all items
-        </p>
-        <p>
-          <strong>Tag:</strong> Coffee capsules, Perso set coffee capsules, coffee capsules
-           Iranian, Iranian Nespresso coffee capsules, coffee set, Setpresso, Gold Setpresso
+          <strong>برچسب:</strong>
+          {product.tags.join(" ,")}
         </p>
       </div>
 
       <div className={styles.share}>
-        <p>share: </p>
+        <p>به اشتراک گذاری: </p>
         <a href="/">
           <FaTelegram />
         </a>

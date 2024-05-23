@@ -5,7 +5,8 @@ import { useState } from "react";
 import Description from "./Description";
 import MoreInfoes from "./MoreInfoes";
 import Comments from "./Comments";
-const Tabs = () => {
+
+const Tabs = ({ product }) => {
   const [tab, setTab] = useState("description");
   return (
     <div data-aos="fade-left" className={styles.tabs}>
@@ -34,34 +35,32 @@ const Tabs = () => {
         <li title="Features">
           <label htmlFor="description" role="button">
             {" "}
-            Informations{" "}
+            Description{" "}
           </label>
         </li>
         <li title="Delivery Contents">
           <label htmlFor="moreInfoes" role="button">
             {" "}
-             More Information{" "}
+             More Informations{" "}
           </label>
         </li>
         <li title="Shipping">
           <label htmlFor="comments" role="button">
             {" "}
-            Comments (7){" "}
+            Comments ({product.comments.length}){" "}
           </label>
         </li>
       </ul>
 
       <div className={styles.contents}>
-        
-       
-        <section className={styles.tabs_content}>
-          <Comments />
-        </section>
         <section className={styles.tabs_content}>
           <Description />
         </section>
         <section className={styles.tabs_content}>
-          <MoreInfoes />
+          <MoreInfoes product={JSON.parse(JSON.stringify(product))} />
+        </section>
+        <section className={styles.tabs_content}>
+          <Comments comments={JSON.parse(JSON.stringify(product.comments))} />
         </section>
       </div>
     </div>

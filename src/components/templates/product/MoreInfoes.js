@@ -1,18 +1,22 @@
 import React from "react";
 
-const MoreInfoes = () => {
+const MoreInfoes = ({ product }) => {
   return (
     <div>
-      <p>More Information :</p>
+      <p>More Informations:</p>
       <hr />
       <main>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p>Weight</p>
-          <p>10 kil</p>
+          <p>{product.weight} grams</p>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <p>Weight</p>
-          <p>10 kil</p>
+          <p>SuitableFor</p>
+          <p>{product.suitableFor}</p>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p>Smell Amount</p>
+          <p>{product.smell}</p>
         </div>
       </main>
     </div>
