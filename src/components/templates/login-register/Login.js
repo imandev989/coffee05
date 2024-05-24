@@ -15,21 +15,21 @@ const Login = ({ showRegisterForm }) => {
   const loginWithPassword = async () => {
     console.log(phoneOrEmail);
     if (!phoneOrEmail) {
-      return showSwal("لطفا شماره تماس یا ایمیل را وارد کنید", "error", "چشم");
+      return showSwal("Please enter a contact number or email", "error", "OK");
     }
 
     const isValidEmail = valiadteEmail(phoneOrEmail);
     if (!isValidEmail) {
-      return showSwal("ایمیل وارد شده صحیح نیست", "error", "تلاش مجدد");
+      return showSwal("The email entered is not valid", "error", "Retry");
     }
 
     if (!password) {
-      return showSwal("پسورد را وارد کنید", "error", "تلاش مجدد");
+      return showSwal("Enter the password", "error", "Retry");
     }
 
     const isValidPassword = valiadtePassword(password);
     if (!isValidPassword) {
-      return showSwal("پسورد به اندازه کافی قوی نیست", "error", "تلاش مجدد");
+      return showSwal("The password is not strong enough", "error", "Retry");
     }
 
     const user = { email: phoneOrEmail, password };
@@ -43,11 +43,11 @@ const Login = ({ showRegisterForm }) => {
 
     console.log("Res ->", res);
     if (res.status === 200) {
-      showSwal("با موفقیت لاگین شدین", "success", "ورود به پنل کاربری");
+      showSwal("Login Successfull", "success", "Login To Your Panel");
     } else if (res.status === 422 || res.status === 401) {
-      showSwal("کاربری با این اطلاعات یافت نشد", "error", "تلاش مجدد");
+      showSwal("No user found with this information", "error", "Retry");
     } else if (res.status === 419) {
-      showSwal("ایمیل یا پسورد صحیح نیست", "error", "تلاش مجدد");
+      showSwal("Email or password is not correct", "error", "Retry");
     }
   };
 
@@ -61,38 +61,38 @@ const Login = ({ showRegisterForm }) => {
               type="text"
               value={phoneOrEmail}
               onChange={(event) => setPhoneOrEmail(event.target.value)}
-              placeholder="ایمیل/شماره موبایل"
+              placeholder="Phone/Email"
             />
             <input
               className={styles.input}
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="رمز عبور"
+              placeholder="Password"
             />
             <div className={styles.checkbox}>
               <input type="checkbox" name="" id="" />
-              <p>مرا به یاد داشته باش</p>
+              <p>Remember Me</p>
             </div>
             <button className={styles.btn} onClick={loginWithPassword}>
               ورود
             </button>
             <Link href={"/forget-password"} className={styles.forgot_pass}>
-              رمز عبور را فراموش کرده اید؟
+              Forgot your password?
             </Link>
             <button
               onClick={() => setIsLoginWithOtp(true)}
               className={styles.btn}
             >
-              ورود با کد یکبار مصرف
+              Log in with a one-time code
             </button>
-            <span>ایا حساب کاربری ندارید؟</span>
+            <span>Do you not have an account?</span>
             <button onClick={showRegisterForm} className={styles.btn_light}>
-              ثبت نام
+              Register{" "}
             </button>
           </div>
           <Link href={"/"} className={styles.redirect_to_home}>
-            لغو
+            Cancel
           </Link>
         </>
       ) : (

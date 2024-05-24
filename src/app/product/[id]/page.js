@@ -6,9 +6,8 @@ import MoreProducts from "@/components/templates/product/MoreProducts";
 import ProductModel from "../../../../models/Product";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
-import { authUser } from "@/utils/auth";
+import { authUser } from "@/utils/serverHelpers";
 import connectToDB from "../../../../configs/db";
-
 
 const product = async ({ params }) => {
   const user = await authUser();
@@ -17,6 +16,8 @@ const product = async ({ params }) => {
   const product = await ProductModel.findOne({ _id: productID }).populate(
     "comments"
   );
+
+  const relatedProducts = await ProductModel.find({ smell: product.smell });
 
   return (
     <div className={styles.container}>
@@ -27,7 +28,7 @@ const product = async ({ params }) => {
           <Gallery />
         </div>
         <Tabs product={JSON.parse(JSON.stringify(product))} />
-        <MoreProducts />
+        <MoreProducts relatedProducts={JSON.parse(JSON.stringify(relatedProducts))} />
       </div>
       <Footer />
     </div>

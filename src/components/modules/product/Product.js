@@ -3,7 +3,7 @@ import styles from "./product.module.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { CiSearch, CiHeart } from "react-icons/ci";
 
-const Card = () => {
+const Card = ({ name, price }) => {
   return (
     <div className={styles.card}>
       <div className={styles.details_container}>
@@ -25,10 +25,7 @@ const Card = () => {
       </div>
 
       <div className={styles.details}>
-        <Link href={"/"}>
-          SETpresso coffee capsules compatible with Nespresso machine (RED) 10
-          pieces LIMITED EDITION
-        </Link>
+        <Link href={"/"}>{name}</Link>
         <div>
           <FaStar />
           <FaStar />
@@ -36,7 +33,7 @@ const Card = () => {
           <FaRegStar />
           <FaRegStar />
         </div>
-        <span>825,000 Dollar</span>
+        <span>{price?.toLocaleString()} Dollar</span>
       </div>
     </div>
   );

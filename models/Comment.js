@@ -16,7 +16,11 @@ const schema = new mongoose.Schema({
   },
   score: {
     type: Number,
-    required: true,
+    default: 5,
+  },
+  isAccept: {
+    type: Boolean,
+    default: false,
   },
   date: {
     type: Date,

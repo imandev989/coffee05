@@ -1,11 +1,13 @@
 import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
+
 import { TbSwitch3 } from "react-icons/tb";
 import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
+import AddToWishlist from "./AddToWishlist";
 
+// ❌ async
 const Details = ({ product }) => {
   return (
     <main style={{ width: "63%" }}>
@@ -22,7 +24,7 @@ const Details = ({ product }) => {
             <FaRegStar key={index} />
           ))}
         </div>
-        <p>(User {product.comments.length} Views)</p>
+        <p>(View {product.comments.length} User)</p>
       </div>
 
       <p className={styles.price}>{product.price.toLocaleString()} تومان</p>
@@ -32,40 +34,37 @@ const Details = ({ product }) => {
 
       <div className={styles.Available}>
         <IoCheckmark />
-        <p>موجود در انبار</p>
+        <p>Available in Store</p>
       </div>
 
       <div className={styles.cart}>
-        <button>افزودن به سبد خرید</button>
+        <button>Add To Basket</button>
         <div>
           <span>-</span>1<span>+</span>
         </div>
       </div>
 
       <section className={styles.wishlist}>
-        <div>
-          <CiHeart />
-          <a href="/">افزودن به علاقه مندی ها</a>
-        </div>
+        <AddToWishlist />
         <div>
           <TbSwitch3 />
-          <a href="/">مقایسه</a>
+          <a href="/">Compare</a>
         </div>
       </section>
 
       <hr />
 
       <div className={styles.details}>
-        <strong>شناسه محصول: {product._id}</strong>
+        <strong>Product ID: {product._id}</strong>
 
         <p>
-          <strong>برچسب:</strong>
+          <strong>Tags:</strong>
           {product.tags.join(" ,")}
         </p>
       </div>
 
       <div className={styles.share}>
-        <p>به اشتراک گذاری: </p>
+        <p>Share: </p>
         <a href="/">
           <FaTelegram />
         </a>
