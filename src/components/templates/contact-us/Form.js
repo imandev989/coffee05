@@ -93,7 +93,7 @@ const Form = () => {
           rows="3"
         ></textarea>
       </div>
-      <button onClick={submitMessage}>Send</button>
+      <button onClick={submitMessage}>Sends</button>
     </form>
   );
 };

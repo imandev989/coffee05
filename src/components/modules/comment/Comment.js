@@ -4,7 +4,7 @@ import styles from "./comment.module.css";
 const Comment = ({ username, body, email, score, date }) => {
   return (
     <section className={styles.comment}>
-      <img src="/images/shahin.jpg" className={styles.avatar} alt="" />
+      <img src="/images/iman.jpeg" className={styles.avatar} alt="" />
       <div>
         <div className={styles.main_details}>
           <div className={styles.user_info}>
