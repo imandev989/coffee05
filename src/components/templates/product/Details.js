@@ -9,6 +9,7 @@ import AddToWishlist from "./AddToWishlist";
 
 // ❌ async
 const Details = ({ product }) => {
+  console.log("MY PRODUCT -->", product._id);
   return (
     <main style={{ width: "63%" }}>
       <Breadcrumb title={product.name} />
@@ -45,7 +46,7 @@ const Details = ({ product }) => {
       </div>
 
       <section className={styles.wishlist}>
-        <AddToWishlist />
+        <AddToWishlist productID={product._id} />
         <div>
           <TbSwitch3 />
           <a href="/">Compare</a>

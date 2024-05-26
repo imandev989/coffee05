@@ -6,7 +6,13 @@ export async function POST(req) {
     connectToDB();
     const body = await req.json();
     const { user, product } = body;
-    await WishlistModel.create({ user, product });
+
+    //Validation me
+
+    const wish = await WishlistModel.findOne({ user, product });
+    if (!wish) {
+      await WishlistModel.create({ user, product });
+    }
 
     return Response.json(
       { message: "Product added to WishList Successfully..." },
