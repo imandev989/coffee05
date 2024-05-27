@@ -19,10 +19,11 @@ const AddToWishlist = ({ productID }) => {
     authUser();
   }, []);
 
+
+
+
   const addToWishlist = async (event) => {
     event.preventDefault();
-    // console.log(user);
-    // console.log("IDDDD", productID);
     if (!user?._id) {
       return showSwal(
         "For add to Favourites you must First Login",
@@ -30,8 +31,12 @@ const AddToWishlist = ({ productID }) => {
         "Understood"
       );
     }
-    const wish = { user: user._id, productID: productID };
-    // console.log("WISH==>>", wish);
+
+    const wish = {
+      user: user._id,
+      product: productID,
+    };
+
     const res = await fetch("/api/wishlist", {
       method: "POST",
       headers: {
@@ -39,6 +44,9 @@ const AddToWishlist = ({ productID }) => {
       },
       body: JSON.stringify(wish),
     });
+
+    console.log("Response ->", res);
+
     if (res.status === 201) {
       showSwal("product Added to Favourites", "success", "undestand");
     }

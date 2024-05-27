@@ -1,9 +1,9 @@
 import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/wishlist.module.css";
 import Product from "@/components/templates/p-user/wishlist/Product";
-import connectToDB from "@/configs/db";
+import connectToDB from "../../../../configs/db";
 import { authUser } from "@/utils/serverHelpers";
-import WishlistModel from "@/models/Wishlist";
+import WishlistModel from "../../../../models/WishList";
 
 const page = async () => {
   connectToDB();
@@ -11,19 +11,20 @@ const page = async () => {
   const wishlist = await WishlistModel.find({ user: user._id }).populate(
     "product"
   );
-  console.log(wishlist);
+  console.log("WISHLIST",wishlist);
 
   return (
     <UserPanelLayout>
       <main>
         <h1 className={styles.title}>
-          <span>علاقه مندی ها</span>
+          <span>Favourites</span>
         </h1>
         <div className={styles.container}>
           {wishlist.length &&
             wishlist.map((wish) => (
               <Product
                 key={wish._id}
+                productID={String(wish.product._id)}
                 name={wish.product.name}
                 price={wish.product.price}
                 score={wish.product.score}
@@ -32,7 +33,7 @@ const page = async () => {
         </div>
 
         {wishlist.length === 0 && (
-          <p className={styles.empty}>محصولی وجود ندارد</p>
+          <p className={styles.empty}>No Product Exists</p>
         )}
       </main>
     </UserPanelLayout>

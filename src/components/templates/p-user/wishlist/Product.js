@@ -4,14 +4,27 @@ import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
-const Card = ({ price, score, name }) => {
-  const removeProduct = (productId) => {
+const Card = ({ price, score, name, productID }) => {
+  const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
       icon: "warning",
       buttons: ["نه", "آره"],
-    }).then((result) => {
-      //code
+    }).then(async (result) => {
+      if (result) {
+        const res = await fetch(`/api/wishlist/${productID}`, {
+          method: "DELETE",
+        });
+        if (res.status === 200) {
+          swal({
+            title: "Product Deleted Successfully",
+            icon: "success",
+            buttons: "understand",
+          }).then(() => {
+            location.reload();
+          });
+        }
+      }
     });
   };
 
@@ -37,7 +50,7 @@ const Card = ({ price, score, name }) => {
         </div>
         <span>{price.toLocaleString()} تومان</span>
       </div>
-      <button onClick={() => removeProduct(null)} className={styles.delete_btn}>
+      <button onClick={() => removeProduct()} className={styles.delete_btn}>
         حذف محصول{" "}
       </button>
     </div>
