@@ -75,7 +75,7 @@ const Login = ({ showRegisterForm }) => {
               <p>Remember Me</p>
             </div>
             <button className={styles.btn} onClick={loginWithPassword}>
-              ورود
+              Login
             </button>
             <Link href={"/forget-password"} className={styles.forgot_pass}>
               Forgot your password?
