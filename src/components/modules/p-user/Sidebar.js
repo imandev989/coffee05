@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
+import { icon } from "leaflet";
 
 const Sidebar = () => {
   const path = usePathname();
@@ -18,8 +19,22 @@ const Sidebar = () => {
       title: "Support tickets",
       icon: "warning",
       buttons: ["No", "Yes"],
-    }).then((result) => {
+    }).then(async (result) => {
       //code
+      if (result) {
+        const res = await fetch("/api/auth/signout", {
+          method: "POST",
+        });
+        if (res.status === 200) {
+          swal({
+            title: "You Logout Successfully",
+            icon: "success",
+            buttons: "OK",
+          }).then((result) => {
+            location.replace("/");
+          });
+        }
+      }
     });
   };
   return (
