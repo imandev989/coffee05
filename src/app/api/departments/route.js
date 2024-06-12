@@ -1,6 +1,5 @@
-
-import DepartmentModel from "@/../../models/Department";
-import connectToDB from "../../../../configs/db";
+import connectToDB from "@/configs/db";
+import DepartmentModel from "@/models/Department";
 
 export async function POST(req) {
   try {
@@ -19,4 +18,10 @@ export async function POST(req) {
   } catch (err) {
     return Response.json({ message: err }, { status: 500 });
   }
+}
+
+export async function GET() {
+  connectToDB();
+  const departments = await DepartmentModel.find({});
+  return Response.json(departments);
 }
