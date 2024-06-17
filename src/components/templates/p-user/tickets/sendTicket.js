@@ -36,61 +36,104 @@ function sentTicket() {
     getSubDepartments();
   }, [departmentID]);
 
+  const sendTicket = async () => {
+    // Validation (You)
+
+    const ticket = {
+      title,
+      body,
+      department: departmentID,
+      subDepartment: subDepartmentID,
+      priority,
+    };
+
+    const res = await fetch("/api/tickets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ticket),
+    });
+
+    if (res.status === 201) {
+      swal({
+        title: "تیکت شما با موفقیت ثبت شد",
+        icon: "success",
+        buttons: "مشاهده تیکت‌ها",
+      }).then(() => {
+        location.replace("/p-user/tickets");
+      });
+    }
+  };
+
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>
-        <span>  Send New Ticket</span>
-        <Link href="/p-user/tickets"> All Tickets</Link>
+        <span>ارسال تیکت جدید</span>
+        <Link href="/p-user/tickets"> همه تیکت ها</Link>
       </h1>
 
       <div className={styles.content}>
         <div className={styles.group}>
-          <label>Select Department:</label>
+          <label>دپارتمان را انتخاب کنید:</label>
           <select onChange={(event) => setDepartmentID(event.target.value)}>
-            <option value={-1}>Please Select Department</option>
+            <option value={-1}>لطفا دپارتمان را انتخاب نمایید</option>
 
             {departments.map((department) => (
-              <option value={department._id}>{department.title}</option>
+              <option key={department._id} value={department._id}>
+                {department.title}
+              </option>
             ))}
           </select>
         </div>
         <div className={styles.group}>
-          <label>Please Select Type of Department:</label>
-          <select>
-            <option value={-1}>Please Select One Item:</option>
+          <label>نوع تیکت را انتخاب کنید:</label>
+          <select onChange={(event) => setSubDepartmentID(event.target.value)}>
+            <option value={-1}>لطفا یک مورد را انتخاب نمایید</option>
 
             {subDepartments.map((subDepartment) => (
-              <option value={subDepartment._id}>{subDepartment.title} </option>
+              <option key={subDepartment._id} value={subDepartment._id}>
+                {subDepartment.title}{" "}
+              </option>
             ))}
           </select>
         </div>
         <div className={styles.group}>
-          <label>Please Select One Title:</label>
-          <input placeholder="Title..." type="text" />
+          <label>عنوان تیکت را وارد کنید:</label>
+          <input
+            placeholder="عنوان.."
+            type="text"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
         </div>
         <div className={styles.group}>
-          <label>Please Select priority Level:</label>
-          <select>
-            <option>Please Select One Item:</option>
-            <option value="3">Low</option>
-            <option value="2">Mid</option>
-            <option value="1">High</option>
+          <label>سطح اولویت تیکت را انتخاب کنید:</label>
+          <select onChange={(event) => setPriority(event.target.value)}>
+            <option value={-1}>لطفا یک مورد را انتخاب نمایید</option>
+            <option value={1}>کم</option>
+            <option value={2}>متوسط</option>
+            <option value={3}>بالا</option>
           </select>
         </div>
       </div>
       <div className={styles.group}>
-        <label>  Please Select Contetnt of Ticket:</label>
-        <textarea rows={10}></textarea>
+        <label>محتوای تیکت را وارد نمایید:</label>
+        <textarea
+          value={body}
+          onChange={(event) => setBody(event.target.value)}
+          rows={10}
+        ></textarea>
       </div>
       <div className={styles.uploader}>
-        <span>Max Size: 6 MByte</span>
-        <span> Valid Formats: jpg, png.jpeg, rar, zip</span>
+        <span>حداکثر اندازه: 6 مگابایت</span>
+        <span>فرمت‌های مجاز: jpg, png.jpeg, rar, zip</span>
         <input type="file" />
       </div>
 
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={sendTicket}>
         <IoIosSend />
-        Send Ticket{" "}
+        ارسال تیکت
       </button>
     </main>
   );

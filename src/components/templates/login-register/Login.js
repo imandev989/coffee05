@@ -4,8 +4,10 @@ import Link from "next/link";
 import Sms from "./Sms";
 import { showSwal } from "@/utils/helpers";
 import { valiadteEmail, valiadtePassword } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 
 const Login = ({ showRegisterForm }) => {
+  const router = useRouter();
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
   const [password, setPassword] = useState("");
   const [phoneOrEmail, setPhoneOrEmail] = useState("");
@@ -41,9 +43,13 @@ const Login = ({ showRegisterForm }) => {
     });
     const data = await res.json();
 
-    console.log("Res ->", res);
+    // console.log("Res ->", res);
     if (res.status === 200) {
-      showSwal("Login Successfull", "success", "Login To Your Panel");
+      swal({
+        title: "Login Successfull",
+        icon: "success",
+        buttons: "Login To Your Panel",
+      }).then(() => router.refresh("p-user"));
     } else if (res.status === 422 || res.status === 401) {
       showSwal("No user found with this information", "error", "Retry");
     } else if (res.status === 419) {
