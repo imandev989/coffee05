@@ -1,6 +1,7 @@
-import connectToDB from "@/configs/db";
+
 import { authUser } from "@/utils/serverHelpers";
 import TicketModel from "@/models/Ticket";
+import connectToDB from "../../../../configs/db";
 
 export async function POST(req) {
   try {

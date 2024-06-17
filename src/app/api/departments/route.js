@@ -1,5 +1,6 @@
-import connectToDB from "@/configs/db";
-import DepartmentModel from "@/models/Department";
+
+import DepartmentModel from "@/../../models/Department";
+import connectToDB from "../../../../configs/db";
 
 export async function POST(req) {
   try {
