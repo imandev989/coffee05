@@ -6,17 +6,17 @@ const Order = () => {
     <Link href={`/product/123`} className={styles.card}>
       <div>
         <div>
-          <p>قهوه عربیکا 40 درصد</p>
+          <p>Arabika Coffe 40%</p>
           <img
             src="https://set-coffee.com/wp-content/uploads/2022/03/ethiopia-430x430.png"
             alt=""
           />
         </div>
-        <p>تکمیل شده</p>
+        <p> Completed</p>
       </div>
       <div>
-        <p>8:00 1402/10/21</p>
-        <p className={styles.price}>200000 هزار تومان</p>
+        <p>8:00 13/10/1989</p>
+        <p className={styles.price}>200000  $</p>
       </div>
     </Link>
   );
