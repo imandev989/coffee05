@@ -1,25 +1,52 @@
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/models/Discount";
 
-export async function POST(req) {
-  try {
-    connectToDB();
-    const body = await req.json();
-    const { code, percent, maxUse } = body;
 
-    // Validation (You) ✅
+const Discounts = async () => {
+  connectToDB();
+  const discounts = await DiscountModel.find({}).lean();
 
-    await DiscountModel.create({
-      code,
-      percent,
-      maxUse,
-    });
+  return (
+    <Layout>
+      <main>
+        <section className={styles.discount}>
+          <p>افزودن کد تخفیف جدید</p>
+          <div className={styles.discount_main}>
+            <div>
+              <label>شناسه تخفیف</label>
+              <input placeholder="لطفا شناسه تخفیف را وارد کنید" type="text" />
+            </div>
+            <div>
+              <label>درصد تخفیف</label>
+              <input placeholder="لطفا درصد تخفیف را وارد کنید" type="text" />
+            </div>
+            <div>
+              <label>حداکثر استفاده</label>
+              <input placeholder="حداکثر استفاده از کد تخفیف" type="text" />
+            </div>
+            <div>
+              <label>محصول</label>
+              <select name="" id="">
+                <option value="">قهوه ترک</option>
+                <option value="">قهوه عربیکا</option>
+                <option value="">قهوه اسپرسو</option>
+              </select>
+            </div>
+          </div>
+          <button>افزودن</button>
+        </section>
 
-    return Response.json(
-      { message: "Discount code created successfully :))" },
-      { status: 201 }
-    );
-  } catch (err) {
-    return Response.json({ message: err }, { status: 500 });
-  }
-}
+        {discounts.length === 0 ? (
+          <p className={styles.empty}>کد تخفیفی وجود ندارد</p>
+        ) : (
+          <Table
+            discounts={JSON.parse(JSON.stringify(discounts))}
+            title="لیست تخفیفات"
+          />
+        )}
+      </main>
+    </Layout>
+  );
+};
+
+export default Discounts;
