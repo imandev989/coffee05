@@ -1,4 +1,3 @@
-
 import Layout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/index.module.css";
 // import Box from "@/components/templates/p-user/index/Box";
@@ -13,7 +12,7 @@ import Box from "@/components/modules/infoBox/InfoBox";
 
 const page = async () => {
   const user = await authUser();
-  const tickets = await TicketModel.find({ user: user._id })
+  const tickets = await TicketModel.find({ user: user._id, isAnswer: false })
     .limit(3)
     .populate("department", "title")
     .sort({ _id: -1 })
@@ -42,9 +41,3 @@ const page = async () => {
 };
 
 export default page;
-
-
-
-
-
-
