@@ -6,12 +6,12 @@ function Table({ discounts }) {
     <table className={styles.table}>
       <thead>
         <tr>
-          <th>شناسه</th>
-          <th>کد</th>
-          <th>درصد</th>
-          <th>حداکثر استفاده</th>
-          <th>دفعات استفاده شده</th>
-          <th>حذف</th>
+          <th>ID</th>
+          <th>Code</th>
+          <th>Percentage</th>
+          <th>Maximum Use</th>
+          <th>Number Of Use</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +30,7 @@ function Table({ discounts }) {
             <td>{discount.uses}</td>
             <td>
               <button type="button" className={styles.delete_btn}>
-                حذف
+                Delete
               </button>
             </td>
           </tr>

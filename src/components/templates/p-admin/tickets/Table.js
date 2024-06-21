@@ -8,14 +8,14 @@ export default function DataTable({ tickets, title }) {
   const router = useRouter();
 
   const showTicketBody = (body) => {
-    showSwal(body, undefined, "بستن");
+    showSwal(body, undefined, "Close");
   };
 
   const answerToTicket = async (ticket) => {
     swal({
-      title: "لطفا پاسخ مورد نظر را وارد کنید:",
+      title: "Please Insert Your Response:",
       content: "input",
-      buttons: "ثبت پاسخ",
+      buttons: "Submit Response",
     }).then(async (answerText) => {
       if (answerText) {
         const answer = {
@@ -34,9 +34,9 @@ export default function DataTable({ tickets, title }) {
 
         if (res.status === 201) {
           swal({
-            title: "پاسخ مورد نظر ثبت شد",
+            title: "Your Response Submited",
             icon: "success",
-            buttons: "فهمیدم",
+            buttons: "Understand",
           });
         }
       }
@@ -54,13 +54,13 @@ export default function DataTable({ tickets, title }) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>شناسه</th>
-              <th>کاربر</th>
-              <th>عنوان</th>
-              <th>دپارتمان</th>
-              <th>مشاهده</th>
-              <th>پاسخ</th>
-              <th>بن</th>
+              <th>ID</th>
+              <th>User</th>
+              <th>Title</th>
+              <th>Department</th>
+              <th>View</th>
+              <th>Response</th>
+              <th>Ban</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +76,7 @@ export default function DataTable({ tickets, title }) {
                     className={styles.edit_btn}
                     onClick={() => showTicketBody(ticket.body)}
                   >
-                    مشاهده
+                    View
                   </button>
                 </td>
                 <td>
@@ -85,12 +85,12 @@ export default function DataTable({ tickets, title }) {
                     className={styles.delete_btn}
                     onClick={() => answerToTicket(ticket)}
                   >
-                    پاسخ
+                    Response
                   </button>
                 </td>
                 <td>
                   <button type="button" className={styles.delete_btn}>
-                    بن
+                   Ban
                   </button>
                 </td>
               </tr>

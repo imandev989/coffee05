@@ -37,9 +37,9 @@ function AddDiscount() {
 
     if (res.status === 201) {
       swal({
-        title: "کد تخفیف با موفقیت ایجاد شد",
+        title: "Discount Code Created Successfully",
         icon: "success",
-        buttons: "فهمیدم",
+        buttons: "Understand",
       }).then(() => {
         setCode("");
         setPercent("");
@@ -54,42 +54,42 @@ function AddDiscount() {
       <p>Add New Discount Code </p>
       <div className={styles.discount_main}>
         <div>
-          <label>شناسه تخفیف</label>
+          <label> Discount ID</label>
           <input
             value={code}
             onChange={(event) => setCode(event.target.value)}
-            placeholder="لطفا شناسه تخفیف را وارد کنید"
+            placeholder="Please Inser Discount Code"
             type="text"
           />
         </div>
         <div>
-          <label>درصد تخفیف</label>
+          <label>Discount Percentage</label>
           <input
             value={percent}
             onChange={(event) => setPercent(event.target.value)}
-            placeholder="لطفا درصد تخفیف را وارد کنید"
+            placeholder="Please Insert Percent of Discount Code"
             type="text"
           />
         </div>
         <div>
-          <label>حداکثر استفاده</label>
+          <label> Maximum Use</label>
           <input
             value={maxUse}
             onChange={(event) => setMaxUse(event.target.value)}
-            placeholder="حداکثر استفاده از کد تخفیف"
+            placeholder="Maximum Use of Code"
             type="text"
           />
         </div>
         <div>
-          <label>محصول</label>
+          <label>Product</label>
           <select name="" id="">
-            <option value="">قهوه ترک</option>
-            <option value="">قهوه عربیکا</option>
-            <option value="">قهوه اسپرسو</option>
+            <option value="">Turkish Coffee</option>
+            <option value="">Arabica Coffee</option>
+            <option value="">Espersso Coffe</option>
           </select>
         </div>
       </div>
-      <button onClick={addDiscount}>افزودن</button>
+      <button onClick={addDiscount}>Add</button>
     </section>
   );
 }

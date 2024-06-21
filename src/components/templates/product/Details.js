@@ -1,3 +1,4 @@
+"use client";
 import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 
@@ -6,10 +7,67 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
 import AddToWishlist from "./AddToWishlist";
+import { useState } from "react";
+import { showSwal } from "@/utils/helpers";
 
 // ❌ async
 const Details = ({ product }) => {
-  console.log("MY PRODUCT -->", product._id);
+  const [count, setCount] = useState(1);
+
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length) {
+      const isInCart = cart.some((item) => item.id === product._id);
+
+      if (isInCart) {
+        cart.forEach((item) => {
+          if (item.id === product._id) {
+            item.count = item.count + count;
+          }
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showSwal(
+          "Product Added To Bascket Successfully",
+          "success",
+          "understand"
+        );
+      } else {
+        const cartItem = {
+          id: product._id,
+          name: product.name,
+          price: product.price,
+          count,
+        };
+
+        cart.push(cartItem);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showSwal(
+          "Product Added To Bascket Successfully",
+          "success",
+          "understand"
+        );
+      }
+    } else {
+      const cartItem = {
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        count,
+      };
+
+      cart.push(cartItem);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showSwal(
+        "Product Added To Bascket Successfully",
+        "success",
+        "understand"
+      );
+    }
+  };
+
   return (
     <main style={{ width: "63%" }}>
       <Breadcrumb title={product.name} />
@@ -28,20 +86,22 @@ const Details = ({ product }) => {
         <p>(View {product.comments.length} User)</p>
       </div>
 
-      <p className={styles.price}>{product.price.toLocaleString()} تومان</p>
+      <p className={styles.price}>$ {product.price.toLocaleString()} </p>
       <span className={styles.description}>{product.shortDescription}</span>
 
       <hr />
 
       <div className={styles.Available}>
         <IoCheckmark />
-        <p>Available in Store</p>
+        <p>Available In Store</p>
       </div>
 
       <div className={styles.cart}>
-        <button>Add To Basket</button>
+        <button onClick={addToCart}>Add To Bascket</button>
         <div>
-          <span>-</span>1<span>+</span>
+          <span onClick={() => setCount(count - 1)}>-</span>
+          {count}
+          <span onClick={() => setCount(count + 1)}>+</span>
         </div>
       </div>
 
@@ -59,13 +119,13 @@ const Details = ({ product }) => {
         <strong>Product ID: {product._id}</strong>
 
         <p>
-          <strong>Tags:</strong>
+          <strong>Tag:</strong>
           {product.tags.join(" ,")}
         </p>
       </div>
 
       <div className={styles.share}>
-        <p>Share: </p>
+        <p>Share : </p>
         <a href="/">
           <FaTelegram />
         </a>
