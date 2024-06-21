@@ -7,14 +7,29 @@ const CommentForm = ({ productID }) => {
   const [email, setEmail] = useState("");
   const [body, setBody] = useState("");
   const [score, setScore] = useState(5);
+  const [isSaveUserInfo, setIsSaveUserInfo] = useState(false);
 
   const setCommentScore = (score) => {
     setScore(score);
     showSwal("Your Score Submited Successfully", "success", "Continue");
   };
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    setUsername(userInfo.username);
+    setEmail(userInfo.email);
+  }, []);
 
   const submitComment = async () => {
-    //Validation
+    // Validation (You)
+
+    if (isSaveUserInfo) {
+      const userInfo = {
+        username,
+        email,
+      };
+
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    }
     const comment = { username, email, body, score, productID };
     const res = await fetch("/api/comments", {
       method: "POST",
@@ -86,7 +101,11 @@ const CommentForm = ({ productID }) => {
         </div>
       </div>
       <div className={styles.checkbox}>
-        <input type="checkbox" name="" id="" />
+        <input
+          type="checkbox"
+          value={isSaveUserInfo}
+          onChange={(event) => setIsSaveUserInfo((prevValue) => !prevValue)}
+        />
         <p>
           {" "}
           Save my name, email and website in the browser for when you visit
