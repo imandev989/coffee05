@@ -5,6 +5,8 @@ import Table from "@/components/templates/p-admin/products/Table";
 
 import ProductModel from "@/../../models/Product";
 import connectToDB from "../../../../configs/db";
+import AddProduct from "@/components/templates/p-admin/products/AddProduct";
+
 
 const page = async () => {
   connectToDB();
@@ -13,6 +15,8 @@ const page = async () => {
   return (
     <Layout>
       <main>
+      <AddProduct />
+
         {products.length === 0 ? (
           <p className={styles.empty}>Prdouct Does not Exist</p>
         ) : (
