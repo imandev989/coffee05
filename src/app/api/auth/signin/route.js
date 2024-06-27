@@ -41,6 +41,7 @@ export async function POST(req) {
       );
     }
 
+
     const accessToken = generateAccessToken({ email });
     const refreshToken = generateRefreshToken({ email });
 
@@ -53,13 +54,18 @@ export async function POST(req) {
       }
     );
 
+    const headers = new Headers();
+    headers.append("Set-Cookie", `token=${accessToken};path=/;httpOnly=true;`);
+    headers.append(
+      "Set-Cookie",
+      `refresh-token=${refreshToken};path=/;httpOnly=true;`
+    );
+
     return Response.json(
       { message: "User logged in successfully :))" },
       {
         status: 200,
-        headers: {
-          "Set-Cookie": `token=${accessToken};path=/;httpOnly=true;`,
-        },
+        headers,
       }
     );
   } catch (err) {
