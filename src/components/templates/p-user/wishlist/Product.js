@@ -7,9 +7,9 @@ import swal from "sweetalert";
 const Card = ({ price, score, name, productID }) => {
   const removeProduct = () => {
     swal({
-      title: "آیا از حذف محصول اطمینان دارید؟",
+      title: "Are you sure to delete the product?",
       icon: "warning",
-      buttons: ["نه", "آره"],
+      buttons: ["No", "Yes"],
     }).then(async (result) => {
       if (result) {
         const res = await fetch(`/api/wishlist/${productID}`, {
@@ -34,7 +34,7 @@ const Card = ({ price, score, name, productID }) => {
         <img
           width={283}
           height={283}
-          src="https://set-coffee.com/wp-content/uploads/2022/03/ethiopia-430x430.png"
+          src="/images/productItem03.png"
           alt=""
         />
       </Link>
@@ -48,10 +48,10 @@ const Card = ({ price, score, name, productID }) => {
             <FaRegStar key={index} />
           ))}
         </div>
-        <span>{price.toLocaleString()} تومان</span>
+        <span>{price.toLocaleString()} $</span>
       </div>
       <button onClick={() => removeProduct()} className={styles.delete_btn}>
-        حذف محصول{" "}
+        Delete from Favourites{" "}
       </button>
     </div>
   );

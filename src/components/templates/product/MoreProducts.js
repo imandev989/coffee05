@@ -8,21 +8,22 @@ import { Navigation } from "swiper/modules";
 const MoreProducts = ({ relatedProducts }) => {
   return (
     <div data-aos="fade-right">
-      <section>
+      <section style={{display:"flex", flexDirection:"column",  alignItems:"end"}}>
         <h2> Related Products</h2>
         <div
           style={{
             height: "2px",
-            width: "70px",
+            width: "200px",
             background: "black",
             marginTop: "10px",
+            
           }}
         ></div>
       </section>
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
-        dir="rtl"
+        dir="ltr"
         rewind={true}
         navigation={true}
         modules={[Navigation]}

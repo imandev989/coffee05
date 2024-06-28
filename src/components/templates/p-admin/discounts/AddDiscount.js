@@ -51,7 +51,7 @@ function AddDiscount() {
 
   return (
     <section className={styles.discount}>
-      <p>Add New Discount Code </p>
+      <p style={{textAlign:"left"}}>Add New Discount Code </p>
       <div className={styles.discount_main}>
         <div>
           <label> Discount ID</label>

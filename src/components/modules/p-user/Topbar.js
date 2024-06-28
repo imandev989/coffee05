@@ -15,13 +15,13 @@ const Topbar = () => {
         <div className={styles.profile}>
           <div>
             <p>Iman N</p>
-            <span>Admin</span>
+            <span>User</span>
           </div>
           <img src="/images/iman.jpeg" alt="" />
         </div>
         <section>
           <div className={styles.searchBox}>
-            <input type="text" placeholder="Search..." />
+            <input type="text" style={{paddingLeft:"50px"}}  placeholder="Search..." />
             <div>
               <IoIosSearch />
             </div>

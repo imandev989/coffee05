@@ -49,7 +49,7 @@ const Footer = () => {
             href={"/article/123"}
             data="December 2023"
             comments="No View "
-            img="https://set-coffee.com/wp-content/uploads/elementor/thumbs/IMG_20230920_130854_091-qconsqrfwm7t626t2hckfjifv0kdd7cofsbfd1jcig.jpg"
+            img="/images/logo3.png" 
             title="Increase energy with instant coffee powder"
           />
 
@@ -59,12 +59,12 @@ const Footer = () => {
             href={"/article/123"}
             data="December 2023"
             comments="No View "
-            img="https://set-coffee.com/wp-content/uploads/elementor/thumbs/IMG_20230920_130854_091-qconsqrfwm7t626t2hckfjifv0kdd7cofsbfd1jcig.jpg"
+            img="/images/logo3.png" 
             title="Increase energy with instant coffee powder"
           />
         </section>
         <section className={styles.descriptions}>
-          <img src="/images/logo_light.png" alt="" />
+          <img src="/images/logo3.png" alt="" />
           <p className={styles.descriptions_title}>Turk coffee company</p>
 
           <div className={styles.description}>

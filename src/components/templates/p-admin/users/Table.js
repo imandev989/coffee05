@@ -19,9 +19,9 @@ export default function DataTable({ users, title }) {
     });
     if (res.status === 200) {
       swal({
-        title: "نقش کاربر با موفقیت تغییر یافت",
+        title: "User Role Changed",
         icon: "success",
-        buttons: "فهمیدم",
+        buttons: "Understood",
       }).then(() => {
         router.refresh();
       });
@@ -33,9 +33,9 @@ export default function DataTable({ users, title }) {
     // Validation (You) ✅
 
     swal({
-      title: "آیا از حذف کاربر اطمینان دارین؟",
+      title: "Are you sure to delete the user ?",
       icon: "warning",
-      buttons: ["نه", "آره"],
+      buttons: ["No", "Yes"],
     }).then(async (result) => {
       if (result) {
         const res = await fetch("/api/user", {
@@ -48,9 +48,9 @@ export default function DataTable({ users, title }) {
 
         if (res.status === 200) {
           swal({
-            title: "کاربر مورد نظر با موفقیت حذف شد",
+            title: "The desired user has been successfully deleted",
             icon: "success",
-            buttons: "فهمیدم",
+            buttons: "Understood",
           }).then(() => {
             router.refresh();
           });
@@ -64,9 +64,9 @@ export default function DataTable({ users, title }) {
     // Validation (You) ✅
 
     swal({
-      title: "آیا از بن کاربر اطمینان دارین؟",
+      title: "Are you sure about the user ban?",
       icon: "warning",
-      buttons: ["نه", "آره"],
+      buttons: ["No", "Yes"],
     }).then(async (result) => {
       if (result) {
         const res = await fetch("/api/user/ban", {
@@ -79,9 +79,9 @@ export default function DataTable({ users, title }) {
 
         if (res.status === 200) {
           swal({
-            title: "کاربر مورد نظر با موفقیت بن شد",
+            title: "The target user has been successfully banned",
             icon: "success",
-            buttons: "فهمیدم",
+            buttons: "Understood",
           }).then(() => {
             router.refresh();
           });

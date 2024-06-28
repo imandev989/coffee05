@@ -9,7 +9,7 @@
   width: 100%;
   justify-content: space-between;
   display: flex;
-  text-align: center;
+  text-align: left;
   font-family: shabnam;
   margin-top: 1.7rem;
   align-items: center;
@@ -23,9 +23,10 @@
 }
 .link {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   gap: 9px;
+  justify-content: center;
 }
 .products {
   display: grid;

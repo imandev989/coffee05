@@ -1,6 +1,6 @@
 .title {
   margin-top: 30px;
-  text-align: right;
+  text-align: left;
   text-transform: uppercase;
   position: relative;
   font-size: 30px;
@@ -161,6 +161,7 @@
 
 .discount {
   padding: 20px;
+  
 }
 
 .discount_main {

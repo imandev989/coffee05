@@ -74,6 +74,7 @@ const Details = ({ product }) => {
       <h2>{product.name}</h2>
 
       <div className={styles.rating}>
+      <p>(View {product.comments.length} User)</p>
         <div>
           {new Array(product.score).fill(0).map((item, index) => (
             <FaStar key={index} />
@@ -83,7 +84,7 @@ const Details = ({ product }) => {
             <FaRegStar key={index} />
           ))}
         </div>
-        <p>(View {product.comments.length} User)</p>
+        
       </div>
 
       <p className={styles.price}>$ {product.price.toLocaleString()} </p>
@@ -97,12 +98,13 @@ const Details = ({ product }) => {
       </div>
 
       <div className={styles.cart}>
-        <button onClick={addToCart}>Add To Bascket</button>
+       
         <div>
           <span onClick={() => setCount(count - 1)}>-</span>
           {count}
           <span onClick={() => setCount(count + 1)}>+</span>
         </div>
+        <button onClick={addToCart}>Add To Bascket</button>
       </div>
 
       <section className={styles.wishlist}>

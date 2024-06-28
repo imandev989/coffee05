@@ -10,7 +10,7 @@ const Card = ({ name, price, img }) => {
         <img
           src={
             img ||
-            "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
+            "/images/productItem.png"
           }
           alt=""
         />
@@ -36,10 +36,13 @@ const Card = ({ name, price, img }) => {
           <FaRegStar />
           <FaRegStar />
         </div>
-        <span>{price?.toLocaleString()} Dollar</span>
+        <span>{price?.toLocaleString()} $</span>
       </div>
     </div>
   );
 };
 
 export default Card;
+
+
+

@@ -35,7 +35,7 @@ function AddProduct() {
       body: formData,
     });
 
-    console.log("Res ->", res);
+    // console.log("Res ->", res);
 
     if (res.status === 201) {
       swal({
@@ -49,7 +49,7 @@ function AddProduct() {
   };
   return (
     <section className={styles.discount}>
-      <p>Add New Product</p>
+      <p style={{textAlign:"left"}}>Add New Product</p>
       <div className={styles.discount_main}>
         <div>
           <label>Product Name</label>

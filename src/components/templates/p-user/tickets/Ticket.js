@@ -10,7 +10,7 @@ const Ticket = ({ _id, title, createdAt, department, hasAnswer }) => {
       </div>
       <div>
         <p>{new Date(createdAt).toLocaleDateString()}</p>
-        <p className={styles.no_answer}>
+        <p className={hasAnswer ? styles.answer : styles.no_answer}>
           {hasAnswer ? "Response" : "Not Response"}
         </p>
         {/* answer */}

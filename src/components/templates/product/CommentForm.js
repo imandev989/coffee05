@@ -1,6 +1,6 @@
 import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { showSwal } from "@/utils/helpers";
 const CommentForm = ({ productID }) => {
   const [username, setUsername] = useState("");
@@ -15,8 +15,8 @@ const CommentForm = ({ productID }) => {
   };
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    setUsername(userInfo.username);
-    setEmail(userInfo.email);
+    setUsername(userInfo?.username);
+    setEmail(userInfo?.email);
   }, []);
 
   const submitComment = async () => {

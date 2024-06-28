@@ -3,6 +3,7 @@
   padding: 50px;
   padding-bottom: 80px;
   width: 100%;
+  direction: ltr;
 }
 
 .tabs input[name="tab-control"] {

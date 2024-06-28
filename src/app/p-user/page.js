@@ -12,7 +12,7 @@ import Box from "@/components/modules/infoBox/InfoBox";
 
 const page = async () => {
   const user = await authUser();
-  console.log("USER", user);
+  // console.log("USER", user);
   const tickets = await TicketModel.find({ user: user._id, isAnswer: false })
     .limit(3)
     .populate("department", "title")

@@ -13,10 +13,10 @@ const page = async () => {
     // .populate("user")
     .populate("productID")
     .lean();
-  console.log("COMMENTS++>>", comments);
+  // console.log("COMMENTS++>>", comments);
   return (
     <Layout>
-      <main>
+      <main >
         {comments.length === 0 ? (
           <p className={styles.empty}> Comment Not Exist</p>
         ) : (
