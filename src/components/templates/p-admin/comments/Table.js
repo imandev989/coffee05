@@ -54,7 +54,7 @@ export default function DataTable({ comments, title }) {
     <div>
       <div>
         <h1 className={styles.title}>
-          <span>{title}</span>
+          <span style={{textAlign:"left"}}>{title}</span>
         </h1>
       </div>
       <div className={styles.table_container}>

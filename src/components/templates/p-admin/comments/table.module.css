@@ -6,24 +6,25 @@
   font-size: 30px;
   z-index: 1;
   font-weight: 500;
+  /* width: 90%; */
 }
 
 .title:before {
   border-top: 2px solid #dfdfdf;
   content: "";
-  margin: 0 auto;
+  /* margin: 0 auto;
   position: absolute;
   top: 52%;
   left: 0;
   right: 0;
   bottom: 0;
   width: 95%;
-  z-index: -1;
+  z-index: -1; */
 }
 
 .title span {
   background: #fff;
-  padding: 0 15px;
+  /* padding: 0 10px; */
   margin-right: 4rem;
 }
 
@@ -37,13 +38,13 @@
   -moz-box-shadow: 0 1px 0 0 #711d1c;
   box-shadow: 0 1px 0 0 #711d1c;
   content: "";
-  margin: 0 auto;
+  /* margin: 0 auto;
   position: absolute;
   top: 51%;
   left: 0;
   right: 0;
   width: 95%;
-  z-index: -1;
+  z-index: -1; */
 }
 
 .table {
@@ -55,7 +56,7 @@
 }
 
 .table {
-  width: 100%;
+  /* width: 100%; */
   background-color: #f2f7fd;
 }
 
@@ -71,14 +72,15 @@
 
 .table td,
 .table th {
-  padding: 8px 22px;
+  /* padding: 8px 22px; */
+  padding: 1px;
   text-align: center;
 }
 
 .delete_btn {
   font-size: 13px;
   background: #711d1c;
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0rem;
   border: 0;
   border-radius: 3px;
   color: white;
@@ -90,7 +92,7 @@
 .btn {
   font-size: 13px;
   background: #000000;
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0rem;
   cursor: pointer;
   border: 0;
   border-radius: 3px;
@@ -99,7 +101,9 @@
 }
 
 .table_container {
-  padding: 40px 25px;
+  /* padding: 40px 10px; */
+  background-color: yellow;
+  overflow: hidden;
 }
 
 .answer_contact {
@@ -124,7 +128,7 @@
 .no_check {
   font-size: 13px;
   background: #000000;
-  padding: 0.4rem 0.7rem;
+  /* padding: 0.4rem 0.7rem; */
   width: -webkit-fill-available;
   cursor: pointer;
   border: 0;
@@ -142,9 +146,9 @@
 .empty {
   color: white;
   background-color: #711d1c;
-  padding: 0.7rem 2rem;
-  width: max-content;
-  margin: 15rem auto;
+  /* padding: 0.7rem 2rem; */
+  /* width: max-content; */
+  /* margin: 15rem auto; */
   font-size: 1.7rem;
   border-radius: 5px;
 }
